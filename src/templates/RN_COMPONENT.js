@@ -1,7 +1,7 @@
 import React, { Component }from 'react';
 import { Text, View } from 'react-native';
 
-export default class ScreenManager extends Component {
+export default class Template extends Component {
   constructor(props) {
     super(props);
 
@@ -12,7 +12,7 @@ export default class ScreenManager extends Component {
 
     return (
       <View>
-        <Text>Screen Manager</Text>
+        <Text>Screen Template</Text>
       </View>
     )
   }
