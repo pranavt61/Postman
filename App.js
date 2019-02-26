@@ -22,7 +22,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View>
-        <ScreenManager></ScreenManager>
+        <ScreenManager/>
       </View>
     );
   }
