@@ -9,10 +9,23 @@
 
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import ScreenManager from './src/manager/';
+import EmailList from './src/plugins/EmailList/';
 
-export default class App extends Component<Props> {
+const StackNavigator = createStackNavigator({
+  EmailList: EmailList
+},{
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: 'orange'
+    }
+  }
+});
+
+const AppContainer = createAppContainer(StackNavigator);
+
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -21,18 +34,7 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScreenManager/>
-      </View>
+      <AppContainer />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});

@@ -1,7 +1,10 @@
 import React, { Component }from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet} from 'react-native';
 
 export default class AccountListScreen extends Component {
+  static navigationOptions = {
+    title: 'Account List'
+  };
   constructor(props) {
     super(props);
 
@@ -9,13 +12,18 @@ export default class AccountListScreen extends Component {
   }
 
   render() {
-
     return (
-      <View>
-        <Text>Screen Template</Text>
+      <View style={styles.main_view}>
+        <Text>Account List</Text>
       </View>
     )
   }
 }
-
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FF0000',
+  }
+});
