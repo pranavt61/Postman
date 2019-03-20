@@ -10,11 +10,16 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { ThemeProvider, Button } from 'react-native-elements';
 
 import EmailList from './src/plugins/EmailList/';
+import AccountList from './src/plugins/AccountList/';
+import EmailSend from './src/plugins/EmailSend/';
 
 const StackNavigator = createStackNavigator({
-  EmailList: EmailList
+  EmailList: EmailList,
+  AccountList: AccountList,
+  EmailSend: EmailSend
 },{
   defaultNavigationOptions: {
     headerStyle: {
@@ -34,7 +39,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <AppContainer />
+      <ThemeProvider>
+        <AppContainer />
+      </ThemeProvider>
     );
   }
 }

@@ -1,7 +1,12 @@
 import React, { Component }from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default class EmailListScreen extends Component {
+  static navigationOptions = {
+    title: 'Inbox',
+  };
+
   constructor(props) {
     super(props);
 
@@ -9,10 +14,18 @@ export default class EmailListScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
 
     return (
       <View>
-        <Text>Screen Template</Text>
+        <Button
+          title="Account List"
+          onPress={() => navigate('AccountList')}
+        />
+        <Button
+          title="Email Send"
+          onPress={() => navigate('EmailSend')}
+        />
       </View>
     )
   }
