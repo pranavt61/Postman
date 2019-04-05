@@ -23,7 +23,8 @@ const StackNavigator = createStackNavigator({
 },{
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: 'orange'
+      color: '#FFFFFF',
+      backgroundColor: '#089de3'
     }
   }
 });

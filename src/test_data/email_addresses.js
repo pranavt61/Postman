@@ -1,4 +1,4 @@
-export default const email_addresses = [
+const email_addresses = [
   {
     name: 'Pranav Thirunavukkararsu',
     address: 'p_thiru@postman.com'
@@ -12,3 +12,5 @@ export default const email_addresses = [
     address: 'a_tran@postman.com'
   }
 ];
+
+export default email_addresses;
