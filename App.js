@@ -21,12 +21,12 @@ const StackNavigator = createStackNavigator({
   AccountList: AccountList,
   EmailSend: EmailSend
 },{
-  defaultNavigationOptions: {
+  /*  defaultNavigationOptions: {
     headerStyle: {
       color: '#FFFFFF',
       backgroundColor: '#089de3'
     }
-  }
+  }*/
 });
 
 const AppContainer = createAppContainer(StackNavigator);
