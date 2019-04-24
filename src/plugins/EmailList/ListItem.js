@@ -40,7 +40,7 @@ export default class Listing extends Component {
         <View style={styles.title_bar}>
           <View style={styles.icon}>
             <Avatar
-              size='large'
+              size='medium'
               rounded
               source={{uri: senderIcon}} />
           </View>
@@ -49,7 +49,9 @@ export default class Listing extends Component {
             <Text style={styles.title_text}>{title}</Text>
           </View>
           <View style={styles.time}>
-            <TimeAgo time={new Date(timestamp * 1000)} />
+            <TimeAgo
+              style={styles.time_text}
+              time={new Date(timestamp * 1000)} />
           </View>
         </View>
         <View style={styles.preview}>
@@ -91,7 +93,11 @@ const styles = StyleSheet.create({
   time: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    padding: 10
+  },
+  time_text: {
+    color: 'white'
   },
 
   sender_name_text: {
@@ -105,7 +111,8 @@ const styles = StyleSheet.create({
 
   preview: {
     flex: 2,
-    backgroundColor: '#FFFFFF'
+    //backgroundColor: '#FFFFFF',
+    padding: 10
   },
 
   option_bar: {

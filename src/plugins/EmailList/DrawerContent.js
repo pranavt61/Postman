@@ -16,28 +16,43 @@ export default class DrawerContent extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      curSelected: 0,
+      data: TEST_ADDR_DATA.slice()
+    };
   }
+
+  selectAccount = (index) => {
+    const curSel = this.state.curSelected;
+    let data = this.state.data;
+  
+    data[curSel].selected = false;
+
+    data[index].selected = true;
+
+    this.setState({
+      curSelected: index
+    });
+  };
 
   render() {
     // navigate()
     const nav = this.props.nav;
     const onDrawerClose = this.props.onDrawerClose;
+    const data = this.state.data;
 
     return (
       <View style={styles.main_view}>
         <FlatList
-          data={TEST_ADDR_DATA}
-          renderItem={({item}) => 
+          data={data}
+          renderItem={({item, index}) => 
             <Button 
               large 
-              title={item.address}/>
+              title={item.address}
+              raised={item.selected}
+              backgroundColor={'#FF0000'}
+              onPress={() => this.selectAccount(index)}/>
             }
-        />
-        <Button
-          onPress={() => onDrawerClose()}
-          large
-          title='Close'
         />
       </View>
     );

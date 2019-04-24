@@ -25,7 +25,7 @@ export default class EmailListScreen extends Component {
       headerLeft: (
         <TouchableOpacity
           style={{paddingLeft: 10}}
-          onPress={() => {params.onDrawerPress()}}>
+          onPress={() => {params.onDrawerToggle()}}>
           <Icon 
             name="bars"
             type='font-awesome'
@@ -38,33 +38,40 @@ export default class EmailListScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      drawerState: false
+    };
   }
 
   componentDidMount() {
     // set header button action
     this.props.navigation.setParams({
-      onDrawerPress: this.onDrawerPress
+      onDrawerToggle: this.onDrawerToggle
     });
   }
 
-  onDrawerPress = () => {
-    this._drawer.open();
-  };
+  onDrawerToggle = () => {
+    const drawerState = this.state.drawerState;
 
-  onDrawerClose = () => {
-    this._drawer.close();
-  }
+    if (drawerState) {
+      this._drawer.close();
+    } else {
+      this._drawer.open();
+    }
+
+    this.setState({
+      drawerState: !drawerState
+    });
+  };
 
   render() {
     const { navigate } = this.props.navigation;
-    const onDrawerClose = this.onDrawerClose;
 
     return (
       <Drawer
         ref={(ref) => this._drawer = ref}
         openDrawerOffset={100}
-        content={<DrawerContent nav={navigate} onDrawerClose={onDrawerClose}/>}>
+        content={<DrawerContent nav={navigate} />}>
         <View>
           <FlatList
             data={TEST_EMAIL_DATA}
