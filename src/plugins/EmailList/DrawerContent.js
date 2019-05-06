@@ -23,6 +23,7 @@ export default class DrawerContent extends Component {
   }
 
   selectAccount = (index) => {
+    this.props.onDrawerToggle();
     const curSel = this.state.curSelected;
     let data = this.state.data;
   

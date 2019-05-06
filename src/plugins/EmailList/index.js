@@ -71,7 +71,7 @@ export default class EmailListScreen extends Component {
       <Drawer
         ref={(ref) => this._drawer = ref}
         openDrawerOffset={100}
-        content={<DrawerContent nav={navigate} />}>
+        content={<DrawerContent nav={navigate} onDrawerToggle={this.onDrawerToggle}/>}>
         <View>
           <FlatList
             data={TEST_EMAIL_DATA}
